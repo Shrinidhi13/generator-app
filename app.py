@@ -43,7 +43,7 @@ st.title("🧾 Quotation PDF with Header, Inputs & Preview")
 
 # === USER INPUT FIELDS ===
 lead_ref = st.text_input("🔢 Lead Reference Number", value="V-42-06")
-customer_name = st.text_area("🏢 Customer/Company Name", value="PARVATI ENGINEERS & CONTRACTORS\nKOLHAPUR")
+customer_name = st.text_area("🏢 Customer/Company Name", value="Techno Electromechs\nKOLHAPUR - Avoid using more than 2 lines")
 ref_source = st.selectbox("📞 Reference Source", ["Enquiry Over Telephone", "IndiaMart", "Email", "Walk-In"])
 kva_choice = st.selectbox("Select Genset Rating (kVA):", genset_data.keys())
 details = genset_data[kva_choice]
@@ -57,10 +57,16 @@ phase_choice = st.selectbox("🔌 Phase", ["Single Phase", "3 Phase"])
 num_sets = st.number_input("Number of Generators", min_value=1, value=1)
 dg_cost = st.number_input("Cost per Generator (INR)", min_value=10000, value=385000)
 transport_cost = st.number_input("Transportation Cost (INR)", min_value=0, value=8000)
-amf_cost = st.number_input("Optional AMF Panel Cost (INR)", min_value=0, value=16500)
-contact_number = st.text_input("📞 Contact Number", value="9096255252")
+include_amf = st.checkbox("Include AMF Panel (Optional Auto Control Panel)", value=False)
+
+if include_amf:
+    amf_cost = st.number_input("AMF Panel Cost (INR)", min_value=0, value=16500)
+else:
+    amf_cost = ""  # Display this in the PDF
+
+contact_number = st.text_input("📞 Contact Number", value="9307085494")
 email_address = st.text_input("📧 Email", value="")
-attention_name = st.text_input("👤 Kind Attention", value="Mr. Sangram Repe")
+attention_name = st.text_input("👤 Kind Attention", value="Mr. Shrinidhi Bhat")
 
 bottom_right_image_path = "footer_img.png"
 header_path = "header.png"

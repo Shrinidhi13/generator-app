@@ -253,7 +253,7 @@ def add_page_four(pdf, kva_choice, phase_choice, num_sets, dg_cost, transport_co
          Paragraph("<i>Optional: AMF Panel (Auto Control Panel), if required</i>", styles["Normal"]),
          "",
          "",
-         f"{amf_cost:,.2f}"]
+         f"{amf_cost:,.2f}" if isinstance(amf_cost, (int, float)) else amf_cost]
     ]
 
     table = Table(data, colWidths=[25*mm, 90*mm, 25*mm, 30*mm, 35*mm])
@@ -272,7 +272,21 @@ def add_page_four(pdf, kva_choice, phase_choice, num_sets, dg_cost, transport_co
     # Frame to place content
     content_frame = Frame(40, 40, width - 80, height - 160, showBoundary=0)
     content_frame.addFromList([table], pdf)
+    # Add contact block below the table
+    contact = [
+    Spacer(1, 100),
+    Paragraph("<b>Thanking You,</b>", styles["Normal"]),
+    Paragraph("<b>Yours Sincerely,</b>", styles["Normal"]),
+    Spacer(1, 6),
+    Paragraph("<b>TECHNO ELECTROMECHS</b>", styles["Normal"]),
+    Paragraph("VENKATESH BHAT", styles["Normal"]),
+    Paragraph("📞 9823012044 / 9022330752", styles["Normal"]),
+    Spacer(1, 6),
+    Paragraph("<i>Techno Serving the Customer since 25 years</i>", styles["Italic"]),
+    Paragraph("<b><font color='darkblue'>AUTHORISED SALES SERVICE AND SPARES</font></b>", styles["Normal"]),
+]
 
+    content_frame.addFromList(contact, pdf)
     # Call page five
     add_page_five(pdf)
 
