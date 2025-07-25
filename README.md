@@ -72,8 +72,8 @@ This app is built for:
 **Techno Electromechs**  
 _Kolhapur's trusted name in power solutions since 25 years_
 
-📞 Contact: `9823012044 / 9022330752`  
-✉️ Email: `techno.tems@gmail.com`
+📞 Contact: `9307085494`  
+✉️ Email: `shrinidhi.vbhat@gmail.com`
 
 ---
 
