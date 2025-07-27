@@ -79,16 +79,22 @@ def add_page_two(pdf, kva_choice, phase_choice):
     ], pdf)
 
     sections = []
+    warranty_text = (
+    "Warranty: 1 Year / 5000 Hrs. & 5C for 5 Years"
+    if kva_choice.strip().startswith("5")
+    else "Warranty: 2 Years / 5000 Hrs. & 5C for 5 Years"
+)
+
     sections.append(make_section("features.png", [
-        "<b>Product Salient Features:</b>",
-        "Low operating & Maintenance cost (500 Hrs./1Year)",
-        "Wide Service Network across India",
-        "Proven Engine & Rugged Usage",
-        "CPCB IV+ Compliant | Remote Monitoring",
-        "Single Window Warranty Policy",
-        "Low Footprint | Umbrella Sales+Service",
-        "Warranty: 2 Years / 5000 Hrs. & 5C for 5 Years"
-    ], styles))
+    "<b>Product Salient Features:</b>",
+    "Low operating & Maintenance cost (500 Hrs./1Year)",
+    "Wide Service Network across India",
+    "Proven Engine & Rugged Usage",
+    "CPCB IV+ Compliant | Remote Monitoring",
+    "Single Window Warranty Policy",
+    "Low Footprint | Umbrella Sales+Service",
+    warranty_text
+], styles))
 
     sections.append(make_section("engine.png", [
         "<b>ENGINE:</b>",
